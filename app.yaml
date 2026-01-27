@@ -1,0 +1,28 @@
+runtime: java17
+service: default
+
+instance_class: F2
+
+env_variables:
+  # Required: Resource scope (project, folder, or organization)
+  RESOURCE_SCOPE: "projects/myntra-sre-poc"
+  # Or for organization: "organizations/YOUR_ORG_ID"
+  # Or for folder: "folders/YOUR_FOLDER_ID"
+  
+  # Required: Catalog type
+  RESOURCE_CATALOG: "PolicyAnalyzer"
+  
+  # Required: Activation timeout (minutes)
+  ACTIVATION_TIMEOUT: "120"
+  
+  # Required: Justification hint
+  JUSTIFICATION_HINT: "Bug or case number"
+  
+  # Required: Justification pattern (regex)
+  JUSTIFICATION_PATTERN: ".*"
+  
+  # Optional: Maximum roles per request
+  ACTIVATION_REQUEST_MAX_ROLES: "10"
+
+# Use the service account
+service_account: jit-access-sa@myntra-sre-poc.iam.gserviceaccount.com
